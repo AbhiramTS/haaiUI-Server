@@ -1,5 +1,8 @@
 import mqttPinSub
+import sensor
 
 moniter = mqttPinSub
 
-moniter.moniter()
+if __name__ == '__main__':
+    moniter.moniter()
+    sensor.moniter()
