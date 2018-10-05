@@ -1,1 +1,24 @@
-<app-push-button  *ngFor="let pin of listOfPins" [id]="pin" ></app-push-button>
+<div class=" container container-fluid " >
+    <div class=" row m-auto p-2 " >
+        <div class=" col-12 col-sm-6 float-left box " >
+            <div class=" container " >
+                <div class=" row  " *ngFor="let row of listOfPins" >
+                    <div class=" col-6 buttonBox "  *ngFor="let pin of row">
+                        <app-push-button   [id]="pin" ></app-push-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" col-12 col-sm-6 jumbotron rounded  float-right box " >
+            <app-sensor></app-sensor>
+        </div>
+    </div>
+</div>
+
+<!-- <table class="table table-borderless text-center " >
+    <tr *ngFor="let row of listOfPins" >
+        <th  *ngFor="let pin of row">
+            <app-push-button   [id]="pin" ></app-push-button>
+        </th>
+    </tr>
+</table> -->

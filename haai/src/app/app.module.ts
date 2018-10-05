@@ -6,12 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ServerRequestService } from './server-request.service';
-import { PushButtonComponent } from './push-button/push-button.component'
+import { PushButtonComponent } from './push-button/push-button.component';
+import { SensorComponent } from './sensor/sensor.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    PushButtonComponent
+    PushButtonComponent,
+    SensorComponent
   ],
   imports: [
     BrowserModule,

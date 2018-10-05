@@ -11,6 +11,7 @@ export class ServerRequestService {
   port: string = "5000";
 
   mqttrequest: string = "http://"+ this.host + ':' + this.port;
+  sensorrequest: string = "http://"+ this.host + ':' + this.port + '/sensor';
 
   constructor(private client: HttpClient) { }
 
@@ -20,11 +21,27 @@ export class ServerRequestService {
     return this.client.get(url, {params});
   }
 
+  private sensor(url: string, parameater): Observable<any>{
+    let params = new HttpParams().set('sensor', parameater);
+    console.log(`Sending request to ${ this.mqttrequest }  ${params}`);
+    return this.client.get(url, {params});
+  }
+
   public mqttResponce(pin){
 
       const data = this.get(this.mqttrequest, pin).subscribe(res =>{
       console.log("returning recieved data");
       return res;
+    },(err) => {
+      console.log(err);
+    })
+  }
+  public sensorPars(sensor: string){
+
+      const data = this.sensor(this.sensorrequest, sensor).subscribe(res =>{
+      console.log("returning recieved data");
+      console.log(res);
+      return res.value;
     },(err) => {
       console.log(err);
     })

@@ -7,7 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public pin: string;
-  listOfPins = ['PinD0', 'PinD1', 'PinD2', 'PinD3'];
+  pinName = ['PinD0', 'PinD1', 'PinD2', 'PinD3'];
+  listOfPins:string[][] =[];
+  
+  ngOnInit() {
+    while(this.pinName.length > 0){
+      this.listOfPins.push(this.pinName.splice(0, 2));
+    }
+    console.log("listOfPins", this.listOfPins);
+  }
 
   title = 'haai';
 }
